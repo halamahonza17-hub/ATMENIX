@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATMENIX</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#121212;
+    color:white;
+}
+
+header{
+    background:#000;
+    text-align:center;
+    padding:25px;
+    border-bottom:3px solid #00ff66;
+}
+
+header h1{
+    color:#00ff66;
+}
+
+.banner{
+    background:#00ff66;
+    color:black;
+    text-align:center;
+    padding:15px;
+    font-weight:bold;
+}
+
+.products{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:30px;
+}
+
+.card{
+    background:#1f1f1f;
+    width:280px;
+    padding:20px;
+    text-align:center;
+    border-radius:15px;
+}
+
+.price{
+    font-size:28px;
+    color:#00ff66;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.btn{
+    background:#00ff66;
+    color:black;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cart{
+    text-align:center;
+    padding:30px;
+}
+
+.whatsapp{
+    display:inline-block;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:8px;
+    margin-top:15px;
+    font-weight:bold;
+}
+
+footer{
+    background:black;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ATMENIX</h1>
+    <p>Graffiti Spreje</p>
+</header>
+
+<div class="banner">
+🚚 DOPRAVA ZDARMA PŘI NÁKUPU NAD 500 Kč
+</div>
+
+<section class="products">
+
+<div class="card">
+    <h2>Black Montana</h2>
+    <p>400 ml</p>
+    <div class="price">150 Kč</div>
+    <button class="btn" onclick="addToCart(150)">Přidat do košíku</button>
+</div>
+
+<div class="card">
+    <h2>Kobra</h2>
+    <p>400 ml</p>
+    <div class="price">135 Kč</div>
+    <button class="btn" onclick="addToCart(135)">Přidat do košíku</button>
+</div>
+
+<div class="card">
+    <h2>Kobra Big Black</h2>
+    <p>600 ml</p>
+    <div class="price">200 Kč</div>
+    <button class="btn" onclick="addToCart(200)">Přidat do košíku</button>
+</div>
+
+</section>
+
+<section class="cart">
+    <h2>🛒 Košík</h2>
+
+    <p>Celková cena: <span id="cartTotal">0</span> Kč</p>
+
+    <p id="shipping">
+        Doprava: 99 Kč (zdarma od 500 Kč)
+    </p>
+
+    <a class="whatsapp"
+       href="https://wa.me/420776406796?text=Dobrý%20den,%20mám%20zájem%20o%20produkty%20ATMENIX."
+       target="_blank">
+       💬 Objednat přes WhatsApp
+    </a>
+
+    <h3>Kontakt</h3>
+    <p>📞 776 406 796</p>
+</section>
+
+<footer>
+© 2026 ATMENIX
+</footer>
+
+<script>
+let total = 0;
+
+function addToCart(price){
+    total += price;
+
+    document.getElementById("cartTotal").innerText = total;
+
+    if(total >= 500){
+        document.getElementById("shipping").innerHTML =
+        "🚚 Doprava zdarma";
+        document.getElementById("shipping").style.color = "#00ff66";
+    } else {
+        document.getElementById("shipping").innerHTML =
+        "Doprava: 99 Kč (zdarma od 500 Kč)";
+        document.getElementById("shipping").style.color = "white";
+    }
+}
+</script>
+
+</body>
+</html>
